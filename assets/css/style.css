@@ -1,0 +1,21 @@
+
+#wrapper{
+	color:#ffffff;
+	width: 100%;
+	background-image: url("../images/blacksky.jpg");
+	height:100%;
+}
+#gifResults{
+	margin:5px;
+	
+}
+.gifContainers{
+	display: inline-block;
+	width:30%;
+	height:30%;
+	margin:5px;
+
+}
+img{
+	width:100%;
+}

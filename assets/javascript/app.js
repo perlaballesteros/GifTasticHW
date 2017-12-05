@@ -29,7 +29,7 @@ function displayGIFS(response){
 	for(var i=0;i<10;i++)
 		{
 			var imageURL=response.data[i].images.original.url;
-			var gif=$("<div>").attr("id","gif-"+i);
+			var gif=$("<div>").attr("id","gif-"+i).addClass("gifContainers");
 			$("#gifResults").append(gif);
 
 
@@ -39,26 +39,26 @@ function displayGIFS(response){
 		}
 
 }
-
-//displaying the button in the array
-createButtons();
-
-
-//Create button based on the users inputed emotion
-$("#submit").on("click",function(){
-
+function addingUserinput2Array(){
 	var userButton=$("#userInput").val().trim();
 
 	topics.push(userButton);
-
 	createButtons();
-});
+	console.log("im here");
+	return;
+}
 
-//generating the Gifs
-$(".emotions").on("click",function(){
+
+createButtons();
+//Create button based on the users inputed emotion
+$("#submit").on("click",addingUserinput2Array);
+
+//generating the Gifs when clicl emobutton
+$("#buttonContainer").on("click",".emotions",function(){
 	var qbutton=$(this).text();
 
-	//console.log(qbutton);
+	console.log(qbutton);
+	console.log("im here2");
 	
 	QueryURL=generateQueryURL(qbutton);
 	console.log(QueryURL)
@@ -72,4 +72,5 @@ $(".emotions").on("click",function(){
 		displayGIFS(response);
 		
 	})
+	
 });
