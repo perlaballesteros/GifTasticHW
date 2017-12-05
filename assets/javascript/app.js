@@ -2,6 +2,7 @@ var APIkey="uRgGZPRQxtbwmclW3BQQoe8RCg97vEUK";
 
 var QueryURL;
 var topics=["love","sad","angry","lol"];
+var JSONRESPONSE;
 
 
 //generate a queryurl based on the users clicked emotion button.
@@ -28,13 +29,14 @@ function displayGIFS(response){
 
 	for(var i=0;i<10;i++)
 		{
-			var imageURL=response.data[i].images.original.url;
+			var imageURL=response.data[i].images.original_still.url;
+			//var imageplay="false"
 			var gif=$("<div>").attr("id","gif-"+i).addClass("gifContainers");
 			$("#gifResults").append(gif);
 
 
 			gif.append("<div id='rating-"+i+"'>Rating: "+response.data[i].rating+"</div>");
-			gif.append("<img id='img-"+i+"' src='"+imageURL+"'/>");
+			gif.append("<img class='images' id='"+i+"' src='"+imageURL+"'/>");
 
 		}
 
@@ -44,8 +46,7 @@ function addingUserinput2Array(){
 
 	topics.push(userButton);
 	createButtons();
-	console.log("im here");
-	return;
+
 }
 
 
@@ -56,12 +57,9 @@ $("#submit").on("click",addingUserinput2Array);
 //generating the Gifs when clicl emobutton
 $("#buttonContainer").on("click",".emotions",function(){
 	var qbutton=$(this).text();
-
-	console.log(qbutton);
-	console.log("im here2");
 	
 	QueryURL=generateQueryURL(qbutton);
-	console.log(QueryURL)
+	
 	
 	$.ajax({
 		url:QueryURL,
@@ -69,8 +67,30 @@ $("#buttonContainer").on("click",".emotions",function(){
 	})
 	.done(function(response){
 
+		JSONRESPONSE=response;
 		displayGIFS(response);
 		
 	})
 	
+});
+
+$("#gifResults").on("click",".images",function(){
+	var imgindex=$(this).attr("id");
+	var gifplay=$(this).attr("src");
+	var imageURLplay=JSONRESPONSE.data[imgindex].images.original.url;
+	var imageURLpause=JSONRESPONSE.data[imgindex].images.original_still.url;
+	
+
+	
+	switch (gifplay){
+		case imageURLpause:
+		$("#"+imgindex).attr("src",imageURLplay);
+		break;
+
+		case imageURLplay:
+		$("#"+imgindex).attr("src",imageURLpause);
+		break;
+	}
+
+
 });
