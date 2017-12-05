@@ -1,7 +1,7 @@
 var APIkey="uRgGZPRQxtbwmclW3BQQoe8RCg97vEUK";
 
 var QueryURL;
-var topics=["love","sad","angry","lol"];
+var topics=["in love","sad","angry","lol","tired","blue","curious","excited","crazy"];
 var JSONRESPONSE;
 
 
@@ -35,7 +35,7 @@ function displayGIFS(response){
 			$("#gifResults").append(gif);
 
 
-			gif.append("<div id='rating-"+i+"'>Rating: "+response.data[i].rating+"</div>");
+			gif.append("<div class='ratings' id='rating-"+i+"'>Rating: "+response.data[i].rating+"</div>");
 			gif.append("<img class='images' id='"+i+"' src='"+imageURL+"'/>");
 
 		}
