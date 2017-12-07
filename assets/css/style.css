@@ -44,6 +44,10 @@ body{
 	column-gap:0px;
 	
 }
+.emotionChosen{
+	font-size: 60px;
+	color:#b5f37b;
+}
 
 .gifContainers{
 	width:100%;

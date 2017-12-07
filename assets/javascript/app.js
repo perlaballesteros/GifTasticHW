@@ -59,6 +59,7 @@ $("#submit").on("click",addingUserinput2Array);
 //generating the Gifs when clicl emobutton
 $("#buttonContainer").on("click",".emotions",function(){
 	var qbutton=$(this).text();
+	$(".emotionChosen").text(qbutton);
 	
 	QueryURL=generateQueryURL(qbutton);
 	
@@ -83,11 +84,13 @@ $("#gifResults").on("click",".images",function(){
 	var imageURLplay=JSONRESPONSE.data[imgindex].images.original.url;
 	var imageURLpause=JSONRESPONSE.data[imgindex].images.original_still.url;
 	
+	
 
 	
 	switch (gifplay){
 		case imageURLpause:
 		$("#"+imgindex).attr("src",imageURLplay);
+		
 		break;
 
 		case imageURLplay:
