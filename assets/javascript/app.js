@@ -27,6 +27,7 @@ function createButtons(){
 function displayGIFS(response){
 	$("#gifResults").empty();
 
+
 	for(var i=0;i<10;i++)
 		{
 			var imageURL=response.data[i].images.original_still.url;
@@ -37,9 +38,10 @@ function displayGIFS(response){
 
 			gif.append("<div class='ratings' id='rating-"+i+"'>Rating: "+response.data[i].rating+"</div>");
 			gif.append("<img class='images' id='"+i+"' src='"+imageURL+"'/>");
+		
+		}	
 
-		}
-
+		
 }
 function addingUserinput2Array(){
 	var userButton=$("#userInput").val().trim();
@@ -69,6 +71,7 @@ $("#buttonContainer").on("click",".emotions",function(){
 
 		JSONRESPONSE=response;
 		displayGIFS(response);
+
 		
 	})
 	

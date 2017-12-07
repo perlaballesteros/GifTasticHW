@@ -1,5 +1,6 @@
 body{
 	background-image: url("../images/blacksky.jpg");
+	margin: 0;
 
 }
 #wrapper{
@@ -11,51 +12,62 @@ body{
 
 .emotions{
 	width:100px;
-	margin:3px;
-	border:2px dotted #b4c8f8;
-	background-color: #324471;
+	margin:10px 1px;
+	background-color: #081525;
 	color:#ffffff;
+	border-radius: 3px;
 }
-
+.emotions:hover{
+	background-color:#592D3E ;
+}
  form{
 	margin-top:15%;
 	margin-left: 30%;
 	width:100%;
 }
+
 #submit{
 	width:150px;
 	margin-top: 10px;
-	background-color:#b4c8f8;
-	color:#324471;
-	border:5px dotted #e8cbeb;
+	background-color:#081525;
+	color:#ffffff;
+	border:1px solid #e8cbeb;
 
 }
+#submit:hover{
+	background-color:#592D3E ;
+}
 #gifResults{
-	margin-top:5%;
+	
+	width:100%;
+	column-count: 3;
+	column-gap:0px;
 	
 }
+
 .gifContainers{
-	display: inline-table;
-	width:30%;
+	width:100%;
+	color: #ffffff;
+	background-color: #081525;
+	display: inline-block;
+	margin:0 0 1px;
+	border: 1px solid #310070;
+
 	
-	margin:6px;
-	text-align: center;
-	
-	color: #324471;
-	overflow: hidden;
-	
-	
-	
+}
+.gifContainers:hover{
+	background-color:#592D3E ;
 }
 .ratings{
 	width:100%;
-	margin:0 auto;
-	background-color: pink;
+	
+
 }
 
 img{
 	width:100%;
-	margin:auto auto;
+	border-radius: 3px;
+	
 	
 	
 
