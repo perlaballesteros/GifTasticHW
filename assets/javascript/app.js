@@ -78,6 +78,12 @@ $("#buttonContainer").on("click",".emotions",function(){
 	
 });
 
+ /*$("#userInput").keypress(function(e){
+    if(e.which == 13){//Enter key pressed
+    	addingUserinput2Array();
+    }
+ });*/
+
 $("#gifResults").on("click",".images",function(){
 	var imgindex=$(this).attr("id");
 	var gifplay=$(this).attr("src");
