@@ -31,17 +31,14 @@ function displayGIFS(response){
 	for(var i=0;i<10;i++)
 		{
 			var imageURL=response.data[i].images.original_still.url;
-			//var imageplay="false"
 			var gif=$("<div>").attr("id","gif-"+i).addClass("gifContainers");
+		
 			$("#gifResults").append(gif);
-
-
+			
 			gif.append("<div class='ratings' id='rating-"+i+"'>Rating: "+response.data[i].rating+"</div>");
 			gif.append("<img class='images' id='"+i+"' src='"+imageURL+"'/>");
-		
-		}	
 
-		
+		}	
 }
 function addingUserinput2Array(){
 	var userButton=$("#userInput").val().trim();
@@ -78,20 +75,11 @@ $("#buttonContainer").on("click",".emotions",function(){
 	
 });
 
- /*$("#userInput").keypress(function(e){
-    if(e.which == 13){//Enter key pressed
-    	addingUserinput2Array();
-    }
- });*/
-
 $("#gifResults").on("click",".images",function(){
 	var imgindex=$(this).attr("id");
 	var gifplay=$(this).attr("src");
 	var imageURLplay=JSONRESPONSE.data[imgindex].images.original.url;
 	var imageURLpause=JSONRESPONSE.data[imgindex].images.original_still.url;
-	
-	
-
 	
 	switch (gifplay){
 		case imageURLpause:
